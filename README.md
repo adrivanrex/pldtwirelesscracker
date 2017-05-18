@@ -1,4 +1,13 @@
-# pldtwirelesscracker
-This is only intended for education purposes. 
+# PLDT wireless cracker
 
-Crack pldt wireless network password.
+
+
+Crack PLDT wireless network password.
+
+
+
+# Disclaimer
+
+  - For education purposes only.
+
+Live link: https://adrivanrex.github.io/pldtwirelesscracker/
