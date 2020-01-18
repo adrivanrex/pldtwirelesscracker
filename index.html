@@ -1,59 +1,42 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="PLDT">
-
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="UTF-8">
+  <title>Example - example-http-service-production</title>
+  
 
-    <title>PLDT wireless cracker</title>
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  <script src="script.js"></script>
+  
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-
+  
 </head>
-
-<body ng-controller="MainCtrl">
-<form class="form-inline" ng-submit="Search()">
-            <div class="form-group">
-              <input type="text" ng-model="site" placeholder=""  value="" class="form-control">
-            </div>
-            <div class="form-group">
-            </div>
-            <button type="submit" class="btn btn-success">Submit</button>
-</form>
-<div id="iframeSite">
+<body ng-app="httpExample">
+  <div ng-controller="FetchController">
+  <select ng-model="method" aria-label="Request method">
+    <option>GET</option>
+    <option>JSONP</option>
+  </select>
+  <input type="text" ng-model="url" size="80" aria-label="URL" />
+  <button id="fetchbtn" ng-click="fetch()">fetch</button><br>
+  <button id="samplegetbtn" ng-click="updateModel('GET', 'http-hello.html')">Sample GET</button>
+  <button id="samplejsonpbtn"
+    ng-click="updateModel('JSONP',
+                  'https://angularjs.org/greet.php?name=Super%20Hero')">
+    Sample JSONP
+  </button>
+  <button id="invalidjsonpbtn"
+    ng-click="updateModel('JSONP', 'https://angularjs.org/doesntexist')">
+      Invalid JSONP
+    </button>
+  <pre>http status code: {{status}}</pre>
+  <pre>http response data: {{data}}</pre>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-     <script>
-        angular.module('PLDT', [])
-          .controller('MainCtrl', ['$scope','$http', function($scope,$http) {
-            $scope.pagecontent = false;
-
-            $scope.Search = function(){
-                alert($scope.site);
-                $http({
-                  method: 'GET',
-                  url: $scope.site
-                }).then(function successCallback(response) {
-                    // this callback will be called asynchronously
-                    // when the response is available
-                    console.log(response);
-                  }, function errorCallback(response) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                  });
-
-
-
-            };
-            
-          }]);
-</script>
-
-
 </body>
-
 </html>
+
+<!-- 
+Copyright 2020 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
